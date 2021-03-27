@@ -1,0 +1,35 @@
+server:
+  port: 9000
+  servlet:
+    contextPath: /
+
+
+spring:
+  profiles:
+    active: dev
+    include: swagger
+
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false # we use gulp + BrowserSync for livereload
+
+  application:
+    name: database-service
+  jmx:
+    enabled: false
+
+  task:
+    execution:
+      thread-name-prefix: test-task-
+      pool:
+        core-size: 2
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: test-scheduling-
+      pool:
+        size: 2
+
+

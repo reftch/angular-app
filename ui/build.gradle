@@ -1,0 +1,20 @@
+plugins {
+  id 'java'
+  id "com.moowork.node" version "1.2.0"
+}
+
+node {
+  version = '11.4.0'
+  npmVersion = '6.11.3'
+  download = true
+}
+
+jar.dependsOn 'npm_run_build'
+
+jar {
+  from 'dist/ui' into 'static'
+}
+
+clean {
+  delete 'dist'
+}

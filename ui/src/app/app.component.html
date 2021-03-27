@@ -1,0 +1,112 @@
+<header>
+  <!--
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="home">App</a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+      <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+        <div *ngIf="router.url === '/home'">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="jobs" routerLinkActive="active"><i class="fa fa-envelope"></i>Jobs</a>
+                </li>
+                <li class="nav-item">
+              <a class="nav-link" routerLink="processing" routerLinkActive="active"><i class="fa fa-navicon"></i>Processing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="reprint" routerLinkActive="active"><i class="fa fa-print"></i>Reprint</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="logs" routerLinkActive="active"><i class="fa fa-pencil"></i>Logs</a>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="router.url === '/processing' || router.url === '/scheduler'">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="processing" routerLinkActive="active"><i class="fa fa-tasks"></i>Task history</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="scheduler" routerLinkActive="active"><i class="fa fa-history"></i>Task schedule</a>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="router.url === '/jobs' || router.url === '/documents'">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="jobs" routerLinkActive="active"><i class="fa fa-envelope"></i>All jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="documents" routerLinkActive="active"><i class="fa fa-folder-open"></i>Search documents</a>
+            </li>
+          </ul>
+        </div>           
+    </div>
+  -->
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href=".">DASHBOARD</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-link" type="submit">Sign out</button>
+    </form>
+  <!-- </nav> -->
+<!--
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="#">Sign out</a>
+      </li>
+    </ul>
+  </nav>
+-->
+</header>
+
+<main>
+  <aside>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="jobs" routerLinkActive="active"><i class="fa fa-globe"></i>Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="documents" routerLinkActive="active"><i class="fa fa-folder-open"></i>Documents</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="processing" routerLinkActive="active"><i class="fa fa-tasks"></i>Task history</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="scheduler" routerLinkActive="active"><i class="fa fa-history"></i>Task schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="reprint" routerLinkActive="active"><i class="fa fa-print"></i>Reprint</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="logs" routerLinkActive="active"><i class="fa fa-pencil"></i>Logs</a>
+        </li>
+    </ul>
+
+      <!-- https://fontawesome.com/v4.7.0/icons/ -->
+<!--      <a class="nav-link" routerLink="processing" routerLinkActive="active"><i class="fa fa-history"></i>Task history</a>-->
+<!--      <a class="nav-link" routerLink="scheduler" routerLinkActive="active"><i class="fa fa-calendar"></i>Task schedule</a>-->
+<!--      <mat-divider></mat-divider>-->
+<!--      <mat-divider [inset]="true"></mat-divider>-->
+<!--      <a class="nav-link" routerLink="jobs" routerLinkActive="active"><i class="fa fa-list-alt"></i>All jobs</a>-->
+<!--      <a class="nav-link" routerLink="documents" routerLinkActive="active"><i class="fa fa-search"></i>Document search</a>-->
+
+  </aside>
+  <section>
+      <div [@routeAnimations]="prepareRoute(outlet)" >
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
+  </section>
+
+</main>

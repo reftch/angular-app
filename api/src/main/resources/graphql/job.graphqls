@@ -1,0 +1,77 @@
+enum Sort {
+    ASCENDING
+    DESCENDING
+    UNSORTED
+}
+
+scalar LocalDateTime
+
+type Job {
+    id: ID!
+    processId: String,
+    jobClassId: String
+    authorizationClass: String
+    state: Int
+    numPages: Int
+    numSheets: Int
+    numDocuments: Int
+    creationDate: LocalDateTime
+    subClass: String
+    jobInfo: String
+    jobComment: String
+    userField0: String
+    userField1: String
+    userField2: String
+    userField3: String
+    userField4: String
+    userField5: String
+    userField6: String
+    userField7: String
+    userField8: String
+    userField9: String
+    workflowId: Int
+    numDocsPhysInserts: Int
+    numDocSelecInserts: Int
+    numDocsCoverSheets: Int
+    numSheetSelecInserts: Int
+    numSheetsCoverSheets: Int
+    numSheetsStartEnd: Int
+    numSheetsSeparator: Int
+}
+
+type Jobs {
+    length: Int!,
+    pageSize: Int!,
+    jobs: [Job!]!
+}
+
+type Doc {
+    id: ID!
+    shipId: Int,
+    docClass: String,
+    impDate: LocalDateTime,
+    copies: Int,
+    type: String,
+    status: Int,
+    priority: String,
+    outputType: String,
+    orderInShipment: Int,
+    docUsage: String
+}
+
+type Docs {
+    length: Int!,
+    pageSize: Int!,
+    docs: [Doc!]!
+}
+
+# The Root Query for the application
+type Query {
+    getJobs(pageNumber: Int, pageSize: Int, sortBy: String, direction: String, filter: String): Jobs!
+    getDocs(pageNumber: Int, pageSize: Int, sortBy: String, direction: String, filter: String): Docs!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    deleteJob(id: Int): Job!
+}
